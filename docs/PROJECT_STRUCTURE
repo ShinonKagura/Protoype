@@ -1,0 +1,120 @@
+## Overview
+The "HeavensByte Smart Transfer" project follows a modular architecture with clear separation of concerns. 
+It uses a Tauri/React hybrid approach for maximum platform compatibility and native performance:
+```
+smart-transfer/
+├── docs/                 # Documentation
+│   ├── DEVELOPMENT.md          # Development guide
+│   ├── PLUGIN_DEVELOPMENT.md   # Plugin development guide
+│   ├── PLUGIN_SYSTEM.md        # Plugin system documentation
+|    ├── PLUGIN_Compression.md        # Plugin Compression documentation
+│   └── PROJECT_STRUCTURE.md    # This file
+│
+├── frontend/            # Frontend application (React + TypeScript + Tauri)
+│   ├── src/            # Source code
+│   │   ├── components/ # React components
+│   │   │   ├── plugins/     # Plugin-specific UI components
+│   │   │   ├── common/      # Shared UI components
+│   │   │   └── layout/      # Layout components
+│   │   ├── hooks/      # Custom React hooks
+│   │   │   ├── plugins/     # Plugin-related hooks
+│   │   │   └── system/      # System integration hooks
+│   │   ├── types/      # TypeScript type definitions
+│   │   │   ├── plugins.ts   # Plugin type definitions
+│   │   │   └── system.ts    # System type definitions
+│   │   └── utils/      # Utility functions
+│   │       ├── tauri/       # Tauri integration utilities
+│   │       └── plugins/     # Plugin utilities
+│   ├── public/         # Static assets
+│   └── package.json    # Dependencies and scripts
+│
+├── logs/               # Application logs directory
+│
+└── rust/               # Rust backend code
+    └── src-tauri/      # Tauri application
+        ├── src/        # Source code
+        │   ├── core/   # Core functionality
+        │   │   ├── plugin_manager.rs  # Plugin management
+        │   │   └── mod.rs            # Core module exports
+        │   │
+        │   ├── plugin_api/  # Plugin API definitions
+        │   │   ├── base.rs     # Base plugin traits
+        │   │   ├── compression.rs  # Compression plugin API
+        │   │   ├── types.rs    # Common types
+        │   │   └── mod.rs      # API module exports
+        │   │
+        │   ├── plugins/  # Plugin implementations
+        │   │   ├── sevenz/     # 7-Zip plugin
+        │   │   ├── zip/        # ZIP plugin
+        │   │   └── template/   # Plugin template
+        │   │
+        │   ├── transfer/  # Transfer functionality
+        │   │   └── mod.rs      # Transfer module exports
+        │   │
+        │   ├── macros.rs  # Custom macros
+        │   ├── lib.rs     # Library exports
+        │   └── main.rs    # Application entry point
+        │
+        ├── Cargo.toml   # Rust dependencies
+        └── tauri.conf.json  # Tauri configuration
+```
+
+## Key Components
+
+### Backend (Rust)
+
+1. **Core System** (`rust/src-tauri/src/core/`)
+   - Plugin management and lifecycle
+   - Core system functionality
+   - Error handling
+
+2. **Plugin API** (`rust/src-tauri/src/plugin_api/`)
+   - Plugin trait definitions
+   - Common types and interfaces
+   - Compression plugin API
+
+3. **Plugins** (`rust/src-tauri/src/plugins/`)
+   - Compression plugins (7-Zip, ZIP)
+   - Plugin template
+   - Plugin-specific implementations
+
+4. **Transfer** (`rust/src-tauri/src/transfer/`)
+   - File transfer functionality
+   - Transfer management
+
+### Frontend (React + TypeScript)
+
+1. **Components**
+   - Plugin-specific UI components
+   - Common UI elements
+   - Layout components
+
+2. **Hooks** (Für was genau sind die Hooks?)
+   - Plugin integration hooks
+   - System integration hooks
+
+3. **Types** (Was für Typen werden genau Definiert?)
+   - Plugin type definitions
+   - System type definitions
+
+4. **Utilities**
+   - Tauri integration
+   - Plugin utilities
+
+   ## Development Guidelines
+
+1. **Code Organization**
+   - Keep plugins independent and self-contained 
+   - Follow the established directory structure
+   - Use appropriate modules for functionality
+
+2. **Documentation**
+   - Keep documentation up to date
+   - Document all public interfaces
+   - Include examples where appropriate
+   - Auto-Documentation? Is there a Possibly way for Autodocumentation with Special Commentary like XML Comments? So on each Compile Build it Generates a automaticly a Documentation without help of AI?  
+
+3. **Plugin Development**
+   - Use the plugin template
+   - Follow plugin development guidelines
+   - Maintain plugin independence

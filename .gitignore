@@ -1,0 +1,50 @@
+# Rust build artifacts
+**/target/
+**/debug/
+**/release/
+
+node_modules
+
+# Node.js modules and build output
+/frontend/node_modules/
+/frontend/.parcel-cache/
+/frontend/dist/
+
+# Tauri-specific artifacts
+/rust/src-tauri/target/
+/rust/src-tauri/tauri-build/
+/rust/src-tauri/plugins/**/target/
+
+# IDE and editor files
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+*.iml
+
+# Logs and temporary files
+*.log
+**/*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Build artifacts
+/dist/
+/build/
+
+# Cargo lockfile
+Cargo.lock
+
+# Miscellaneous
+*.bak
+*.tmp
+*.old
+*.orig
+

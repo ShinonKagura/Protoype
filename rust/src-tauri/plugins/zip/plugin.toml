@@ -1,0 +1,5 @@
+name = "ZIP"
+version = "0.1.0"
+core_version = ">=0.1.0"
+description = "ZIP compression plugin for Smart Transfer"
+type = "compression"

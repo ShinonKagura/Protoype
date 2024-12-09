@@ -1,0 +1,16 @@
+[package]
+name = "plugin-example"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+smart-transfer-plugin-api = { path = "../plugin-api" }
+anyhow = "1.0"
+async-trait = "0.1"
+serde = { version = "1.0", features = ["derive"] }
+
+[dev-dependencies]
+tokio = { version = "1.0", features = ["full"] }

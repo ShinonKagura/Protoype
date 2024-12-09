@@ -1,0 +1,66 @@
+[package]
+name = "smart-transfer"
+version = "0.1.0"
+description = "Eine moderne Datei-Transfer und Kompressions-Anwendung"
+authors = ["you"]
+license = ""
+repository = ""
+edition = "2021"
+
+[lib]
+name = "smart_transfer"
+path = "src/lib.rs"
+
+[[bin]]
+name = "smart-transfer"
+path = "src/main.rs"
+
+[dependencies]
+# Core dependencies
+anyhow = "1.0"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+tokio = { version = "1.34.0", features = ["full"] }
+log = "0.4"
+env_logger = "0.10"
+thiserror = "1.0"
+
+# Platform-specific utilities
+directories = "5.0"  # For platform-specific paths
+
+# Tauri
+tauri = { version = "1.5", features = [ 
+    "shell-open", 
+    "dialog-all", 
+    "window-all",
+    "fs-all"
+] }
+
+# Compression and archiving
+zip = "0.6"
+walkdir = "2.3"
+zstd = "0.13"
+sevenz-rust = "0.5"
+
+# Utilities
+window-shadows = "0.2"
+libloading = "0.8"
+chrono = "0.4"
+notify = "6.1"
+semver = "1.0"
+toml = "0.8"
+tar = "0.4"
+dyn-clone = "1.0"
+async-trait = "0.1"
+tempfile = "3.8"
+
+[build-dependencies]
+tauri-build = { version = "1.5", features = [] }
+
+[features]
+custom-protocol = ["tauri/custom-protocol"]
+default = ["custom-protocol"]
+
+# Development dependencies
+[dev-dependencies]
+test-log = "0.2"

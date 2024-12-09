@@ -1,0 +1,16 @@
+[package]
+name = "smart-transfer-plugin-template"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+# Core dependencies
+libloading = "0.8"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+thiserror = "1.0"
+
+# Add any plugin-specific dependencies here
